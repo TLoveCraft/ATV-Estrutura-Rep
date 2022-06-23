@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      const cores = ["Verde", "Amarelo", "Azul", "Branco"]; // Objeto cores criado e atribuido diversos valores na array
+      for (const index in cores) {
+        // Estrututa for in com a constante (const index em cores), também temos a iteração dos valores do Array cores
+        console.log(index, cores[index]); // Imprime valor da variável index e valor de cada posição do Array cores
+      }
+      // 0 "Verde"
+      // 1 "Amarelo"
+      console.log("--------------------------------");
+      const pessoa = {
+        //criação do objeto pessoa
+        nome: "Bruno", // Variavel criada e atribuida do valor "Bruno"
+        idade: 25, // Variavel criada e atribuida do valor 25
+      };
+
+      for (const index in pessoa) {
+        // Estrututa for in com a constante (const index em pessoa), também temos a iteração dos atributos do objeto pessoa
+        console.log(`${index} - ${pessoa[index]}`); //Imprime valor da variável index e valor de cada atributo do objeto pessoa
+      }
+      // nome - Bruno | idade - 25
+      console.log("--------------------------------");
+      const produtos = [
+        // Objeto produtos criado
+        { descricao: "Resma Ofício", valor: 11.5, quantidade: 10 }, // Array Criado e atribuido os valores nos atributos descrição, valor e quantidade
+        { descricao: "Lapis preto", valor: 0.5, quantidade: 3 }, // Array Criado e atribuido os valores nos atributos descrição, valor e quantidade
+        { descricao: "Transferidor plastico", valor: 1.2, quantidade: 4 }, // Array Criado e atribuido os valores nos atributos descrição, valor e quantidade
+      ];
+
+      let total1 = 0; // variavel total1 criada, e iniciada
+
+      for (const index in produtos) {
+        //Estrututa for in com a constante (const index em pessoa), também temos a iteração dos atributos do objeto produtos
+        const { valor, quantidade } = produtos[index]; // constantes valor e quantidade criadas e atribuidas com os valores dos indices das variaveis de mesmo nome nos Arrays do Objeto produtos
+
+        total1 += valor * quantidade; // Atribuição somando do produto do valor da variável valor multiplicado pelo valor da variável quantidade para o valor da variável total
+      }
+
+      console.log(total1); // 121.3, e imprime todo o valor atribuido a essa variavel
+      console.log("-----------------For-Of---------------");
+      const numeros = [10, 11, 22, 23, 34, 45, 66, 17, 28, 93, 101]; //Objeto numeros criado e atribuido diversos valores na array
+
+      for (const numero of numeros) {
+        //Estrututa for of com a constante (const numero em numeros), também temos a iteração dos atributos do objeto numero
+        console.log(numero); // Aqui imprimimos o valor atribuido na constante e seus respectivos valores
+      }
+      console.log("--------------------------------");
+      const carros = [
+        // Objeto carros criado
+        { id: 1, modelo: "Corsa", marca: "Chevrolet", preco: 18000 }, //Nessa linha foi criada uma Array atribuição de valores nos atributos id, modelo, marca e preco
+        { id: 2, modelo: "Punto", marca: "Fiat", preco: 12000 }, //Nessa linha foi criada uma Array atribuição de valores nos atributos id, modelo, marca e preco
+        { id: 3, modelo: "Gol", marca: "Volkswagen", preco: 14000 }, //Nessa linha foi criada uma Array atribuição de valores nos atributos id, modelo, marca e preco
+        { id: 4, modelo: "Saveiro", marca: "Volkswagen", preco: 20000 }, //Nessa linha foi criada uma Array atribuição de valores nos atributos id, modelo, marca e preco
+        { id: 5, modelo: "Uno", marca: "Fiat", preco: 12000 }, //Nessa linha foi criada uma Array atribuição de valores nos atributos id, modelo, marca e preco
+      ];
+
+      let total2 = 0; //variável criada e inicializada com valor 0 e nome total2
+
+      for (const carro of carros) {
+        //Estrututa for of com a constante (const carro em carros), também temos a iteração dos atributos do objeto numero
+        total2 += carro.preco; // Constante valorFinal criada e convertida do número para o padrão monetário
+      }
+
+      // converte o número para o padrão monetário
+      const valorFinal = Number(total2).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      console.log(valorFinal); // Imprime a valor da variável valorFinal que é R$: 76,000
+      console.log("--------------------------------");
+      const artigo = document.querySelectorAll("article > p"); // Constante artigo criada e atribuida de todos os parágrafos de uma página HTML
+
+      for (const paragrafo of artigo) {
+        //Estrututa for of com a constante (const paragrafo em artigo), também temos a iteração dos atributos do objeto paragrafo
+        paragrafo.classList.add("read");
+      }
+
+      var marcas = ["Fiat", "Chevrolet", "Ford", "Volkswagen"]; //  Diferentes valores foram criados e atribuidos no Array marcas
+      var marcasIniciadasComF = []; //  nenhum valor criado e atribuido no Array marcasIniciadasComF
+      var novoIndice = 0; // Valor criado e atribuido a variavél novoIndice
+
+      function selecionarMarcas(item, indice) {
+        // função criada selecionarMarcas com parâmetros item e indice
+        if (marcas[indice].indexOf("F") == 0) {
+          // Criação de uma estrutura de decisão onde se na posição 0 do item do Array marcas for uma letra F, executa a ação
+          marcasIniciadasComF[novoIndice] = marcas[indice]; // Atribuição do valor do indice do Array marcas para o novoIndice do Array marcasIniciadasComF
+          novoIndice++; // Incrementação do valor da variável novoIndice
+        }
+      }
+
+      marcas.forEach(selecionarMarcas); // Execução da função selecionarMarcas para cada elemento presente no array marcas
+      console.log(marcasIniciadasComF); // Imprime o Array marcasIniciadasComF
+
+      var nomes = ["Alberto", "Alex", "Sandro", "Roberta"]; // Criação e atribuição de diferentes valores no Array nomes
+
+      function converterParaMaisculo(item, indice) {
+        // Criação de uma função converterParaMaisculo com parâmetros item e indice
+        nomes[indice] = nomes[indice].toUpperCase(); // Atribuição do indice do Array nomes em letras maiúsculas para o indice do Array nomes
+      }
+
+      nomes.forEach(converterParaMaisculo); // Execução da função converterParaMaisculo para cada elemento presente no array nomes
+      console.log(nomes); // Imprime o Array nomes
+
+      var nomes = ["Alberto", "Alex", "Sandro", "Ana Roberta"]; // Criação e atribuição de diferentes valores no Array nomes
+      var tamanhoNome = 0; // Criação e inicialização de valor a variavél tamanhoNome
+      var nome = ""; // Criação e inicialização de valor na variavél nome
+
+      function maiorNome(item, indice) {
+        // Criação de uma função maiorNome com parâmetros item e indice
+        if (nomes[indice].length > tamanhoNome) {
+          // Criação de uma estrutura de decisão onde se o tamanho do indice do Array nomes for maior que o valor da variável tamanho nome, executa a ação
+          nome = nomes[indice]; // Atribuição do indice do Array nomes para a variável nome
+          tamanhoNome = nomes[indice].length; // Atribuição do tamanho do indice do Array nomes para a variável tamanhoNome
+        }
+      }
+
+      nomes.forEach(maiorNome); // Execução da função maiorNome para cada elemento presente no array nomes
+      console.log(nome); // Imprime o valor da variável nome
+      var numeros2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Criação e atribuição de diferentes valores no Array numeros2
+      var total3 = 0; // Criação e inicialização de valor na variavél total3
+
+      function somar(item) {
+        // Criação de uma função somar com parâmetro item
+        total3 += item; // Atribuição somando do valor do parâmetro item para a valor da variável total3
+      }
+
+      numeros2.forEach(somar); // Execução da função somar para cada elemento presente no array numeros2
+      console.log(total3); // Imprime o valor da variável total3
+
+      var numeros3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Criação e atribuição de diferentes valores no Array numeros3
+      var total4 = 0; // Criação e inicialização de valor a variavél total4
+
+      function somar2(item, indice) {
+        // Criação de uma função somar2 com parâmetros item e indice
+        total4 += item; // Atribuição somando do valor do parâmetro item para a valor da variável total4
+        console.log("[índice " + indice + "]= " + total4 + " -> "); // Imprime o valor da váriavel indice juntamente com o valor da variável total4
+      }
+
+      numeros3.forEach(somar2); // Execução da função somar2 para cada elemento presente no array numeros3
+
+      var numeros4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Criação e atribuição de diferentes valores no Array numeros4
+      var total5 = 0; // Criação e inicialização de valor a variavél total5
+
+      function somar3(item, indice) {
+        // Criação de uma função somar3 com parâmetros item e indice
+        total5 += item; // Atribuição somando do valor do parâmetro item para a valor da variável total5
+        numeros4[indice] = total5; // Atribuição do valor da variável total5 para o indice do Array numeros4
+      }
+      numeros4.forEach(somar3); // Execução da função somar3 para cada elemento presente no array numeros4
+      console.log(numeros4); // Imprime o Array numeros4
+    </script>
+  </body>
+</html>
